@@ -55,14 +55,17 @@ int choixpokemon(void) {
     while (bool) {
         printf("\nChoisie un pokemon entre Bulbizarre(1) Carapuce(2) et Salameche(3) : ");
         scanf(" %d", &choix);
+        Sleep(1000);
         if (choix == 1 || choix == 2 || choix == 3) {
             bool = 0;
         }
         else {
             printf("depeche toi de choisir ton pokemon\n");
+            Sleep(1000);
         }
     }
 
     printf("Bien. Bonne chance !\n");
+    Sleep(1000);
     return choix;
 }
