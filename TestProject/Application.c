@@ -1,6 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-//#include <ctype.h>
 #include <Windows.h>
 
 struct Dresseur {
@@ -14,14 +13,13 @@ struct Pokemon {
     int defense;
 };
 
-char creerplayer(void);
+void creerplayer(void);
 
 int choixpokemon(void);
 
 int main(void){
 
     creerplayer();
-    //struct Dresseur Player = {&playerName};
 
     int choix = choixpokemon();
     if (choix == 1) {
@@ -37,7 +35,7 @@ int main(void){
 	return 0;
 }
 
-const char* creerplayer(void) {
+void creerplayer(void) {
     char playerName[50];
     printf("Bienvenue dans le monde des pokemons, quel est ton nom ? ");
     scanf(" %s", &playerName);
@@ -48,30 +46,20 @@ const char* creerplayer(void) {
     printf("hmm...\n");
     Sleep(2000);
     printf("Tu n'as pas de pokemon voila qui es bien facheux\n");
-    Sleep(1000);
-    return playerName;
 }
 
 int choixpokemon(void) {
     int bool = 1;
     int choix;
-    printf("\nChoisie un pokemon entre Bulbizarre(1) Carapuce(2) et Salameche(3) : ");
-    scanf("%d", &choix);
-    if (isdigit(choix)) {
-        bool = 0;
-    } else {
-        printf("depeche toi de choisir ton pokemon\n");
-    }
+
     while (bool) {
         printf("\nChoisie un pokemon entre Bulbizarre(1) Carapuce(2) et Salameche(3) : ");
         scanf("%d", &choix);
-        if (isdigit(choix)) {
-            if (choix == 1 || choix == 2 || choix == 3) {
-                bool = 0;
-            }
-            else {
-                printf("depeche toi de choisir ton pokemon\n");
-            }
+        if (choix == 1 || choix == 2 || choix == 3) {
+            bool = 0;
+        }
+        else {
+            printf("depeche toi de choisir ton pokemon\n");
         }
     }
 
