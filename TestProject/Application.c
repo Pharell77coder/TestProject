@@ -38,7 +38,7 @@ int main(void){
 void creerplayer(void) {
     char playerName[50];
     printf("Bienvenue dans le monde des pokemons, quel est ton nom ? ");
-    scanf(" %s", &playerName);
+    scanf("%s", &playerName);
     printf("\n%s. Quel nom interessant...\n", playerName);
     Sleep(1000);
     printf("Allez c'est partir pour l'aventure !\n");
@@ -54,7 +54,7 @@ int choixpokemon(void) {
 
     while (bool) {
         printf("\nChoisie un pokemon entre Bulbizarre(1) Carapuce(2) et Salameche(3) : ");
-        scanf("%d", &choix);
+        scanf(" %d", &choix);
         if (choix == 1 || choix == 2 || choix == 3) {
             bool = 0;
         }
