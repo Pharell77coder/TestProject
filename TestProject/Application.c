@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+//#include <ctype.h>
 #include <Windows.h>
 
 struct Dresseur {
@@ -13,13 +14,33 @@ struct Pokemon {
     int defense;
 };
 
-void Myfunction(void);
+char creerplayer(void);
+
+int choixpokemon(void);
 
 int main(void){
+
+    creerplayer();
+    //struct Dresseur Player = {&playerName};
+
+    int choix = choixpokemon();
+    if (choix == 1) {
+        struct Pokemon Monpokemon = { "Bulbizarre", 30, 10, 10 };
+    }
+    else if (choix == 2) {
+        struct Pokemon Monpokemon = { "Carapuce", 30, 10, 10 };
+    }
+    else if (choix == 3) {
+        struct Pokemon Monpokemon = { "Salameche", 30, 10, 10 };
+    }
+
+	return 0;
+}
+
+const char* creerplayer(void) {
     char playerName[50];
-    printf("Bienvenue dans le monde des pokemon quel est ton nom ? ");
+    printf("Bienvenue dans le monde des pokemons, quel est ton nom ? ");
     scanf(" %s", &playerName);
-    struct Dresseur Player = { playerName };
     printf("\n%s. Quel nom interessant...\n", playerName);
     Sleep(1000);
     printf("Allez c'est partir pour l'aventure !\n");
@@ -27,14 +48,33 @@ int main(void){
     printf("hmm...\n");
     Sleep(2000);
     printf("Tu n'as pas de pokemon voila qui es bien facheux\n");
-
-    struct Pokemon Salameche = {"Salameche", 30, 10, 10};
-    struct Pokemon Bulbizarre = {"Bulbizarre", 30, 10, 10};
-    struct Pokemon Carapuce = {"Carapuce", 30, 10, 10};
-
-	return 0;
+    Sleep(1000);
+    return playerName;
 }
 
-void Myfunction(void) {
-    return 0;
+int choixpokemon(void) {
+    int bool = 1;
+    int choix;
+    printf("\nChoisie un pokemon entre Bulbizarre(1) Carapuce(2) et Salameche(3) : ");
+    scanf("%d", &choix);
+    if (isdigit(choix)) {
+        bool = 0;
+    } else {
+        printf("depeche toi de choisir ton pokemon\n");
+    }
+    while (bool) {
+        printf("\nChoisie un pokemon entre Bulbizarre(1) Carapuce(2) et Salameche(3) : ");
+        scanf("%d", &choix);
+        if (isdigit(choix)) {
+            if (choix == 1 || choix == 2 || choix == 3) {
+                bool = 0;
+            }
+            else {
+                printf("depeche toi de choisir ton pokemon\n");
+            }
+        }
+    }
+
+    printf("Bien. Bonne chance !\n");
+    return choix;
 }
