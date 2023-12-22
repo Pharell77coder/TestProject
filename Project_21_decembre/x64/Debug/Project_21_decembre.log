@@ -1,0 +1,23 @@
+﻿  Source1.c
+C:\Users\phare\source\repos\Project_21_decembre\Project_21_decembre\Source1.c(17,16): warning C4477: 'printf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 2 est de type 'int *'
+C:\Users\phare\source\repos\Project_21_decembre\Project_21_decembre\Source1.c(17,16): warning C4313: 'printf' : '%d' dans la chaîne de format est en conflit avec l'argument 2 de type 'int *'.
+C:\Users\phare\source\repos\Project_21_decembre\Project_21_decembre\Source1.c(42,20): warning C4476: 'printf' : caractère de champ de type ':' inconnu dans le spécificateur de format
+C:\Users\phare\source\repos\Project_21_decembre\Project_21_decembre\Source1.c(42,37): warning C4474: 'printf' : trop d'arguments passés pour la chaîne de format
+  C:\Users\phare\source\repos\Project_21_decembre\Project_21_decembre\Source1.c(42,37):
+  les espaces réservés et leurs paramètres attendent des arguments 0 variadiques, mais des arguments 1 ont été fournis
+  
+C:\Users\phare\source\repos\Project_21_decembre\Project_21_decembre\Source1.c(48,5): warning C4047: 'return' : les niveaux d'indirection de 'int' et de 'int *' sont différents
+C:\Users\phare\source\repos\Project_21_decembre\Project_21_decembre\Source1.c(54,17): warning C4047: '=' : les niveaux d'indirection de 'int *' et de 'int' sont différents
+C:\Users\phare\source\repos\Project_21_decembre\Project_21_decembre\Source1.c(55,17): warning C4047: '=' : les niveaux d'indirection de 'int *' et de 'int' sont différents
+C:\Users\phare\source\repos\Project_21_decembre\Project_21_decembre\Source1.c(59,19): warning C4047: '=' : les niveaux d'indirection de 'int *' et de 'int' sont différents
+C:\Users\phare\source\repos\Project_21_decembre\Project_21_decembre\Source1.c(60,19): warning C4047: '=' : les niveaux d'indirection de 'int *' et de 'int' sont différents
+C:\Users\phare\source\repos\Project_21_decembre\Project_21_decembre\Source1.c(63,40): warning C4047: 'fonction' : les niveaux d'indirection de 'int' et de 'int *' sont différents
+C:\Users\phare\source\repos\Project_21_decembre\Project_21_decembre\Source1.c(63,40): warning C4024: 'combat' : types différents pour le paramètre formel et réel 3
+C:\Users\phare\source\repos\Project_21_decembre\Project_21_decembre\Source1.c(63,68): warning C4047: 'fonction' : les niveaux d'indirection de 'int' et de 'int *' sont différents
+C:\Users\phare\source\repos\Project_21_decembre\Project_21_decembre\Source1.c(63,68): warning C4024: 'combat' : types différents pour le paramètre formel et réel 5
+C:\Users\phare\source\repos\Project_21_decembre\Project_21_decembre\Source1.c(63,83): warning C4047: 'fonction' : les niveaux d'indirection de 'int' et de 'int *' sont différents
+C:\Users\phare\source\repos\Project_21_decembre\Project_21_decembre\Source1.c(63,83): warning C4024: 'combat' : types différents pour le paramètre formel et réel 6
+C:\Users\phare\source\repos\Project_21_decembre\Project_21_decembre\Source1.c(64,12): warning C4477: 'printf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 1 est de type 'int *'
+C:\Users\phare\source\repos\Project_21_decembre\Project_21_decembre\Source1.c(64,12): warning C4313: 'printf' : '%d' dans la chaîne de format est en conflit avec l'argument 1 de type 'int *'.
+C:\Users\phare\source\repos\Project_21_decembre\Project_21_decembre\Source1.c(11): warning C4716: 'je_attack' : doit retourner une valeur
+  Project_21_decembre.vcxproj -> C:\Users\phare\source\repos\Project_21_decembre\x64\Debug\Project_21_decembre.exe
