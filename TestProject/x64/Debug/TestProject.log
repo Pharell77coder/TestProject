@@ -1,4 +1,0 @@
-﻿  Application.c
-C:\Users\phare\source\repos\TestProject\TestProject\Application.c(22,21): warning C4047: 'initialisation' : les niveaux d'indirection de 'char' et de 'char *' sont différents
-C:\Users\phare\source\repos\TestProject\TestProject\Application.c(39,13): warning C4098: 'Myfunction' : fonction 'void' retournant une valeur
-  TestProject.vcxproj -> C:\Users\phare\source\repos\TestProject\x64\Debug\TestProject.exe
