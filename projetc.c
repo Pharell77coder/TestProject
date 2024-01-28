@@ -1,82 +1,66 @@
-#include <iostream>
-#include <cstdlib> // random
+#include <stdio.h>
+#include <stdlib.h>
 
-class Entity {
-public:
-    std::string nom;
-    Entity() {
-        nom = "Computer";
-    }
-    int choix() {
-        return rand() % 3; // Génère un nombre aléatoire entre 0 et 2
-    }
+struct Joueur {
+    char nom[50];
+    int points_de_vie;
+    int points_attaque;
 };
 
-class Player : public Entity {
-public:
-    int choix() {
-        int num = 0;
-        std::cout << "pierre (0) feuille (1) ou ciseau (2) : ";
-        std::cin >> num;
-        return num;
-    }
-};
+void initialiserJoueur(struct Joueur* joueur, const char* nom, int points_de_vie, int points_attaque) {
+    snprintf(joueur->nom, sizeof(joueur->nom), "%s", nom);
+    joueur->points_de_vie = points_de_vie;
+    joueur->points_attaque = points_attaque;
+}
 
+void afficherJoueur(const struct Joueur* joueur) {
+    printf("Nom: %s\nPoints de vie: %d\nPoints d'attaque: %d\n", joueur->nom, joueur->points_de_vie, joueur->points_attaque);
+}
 
-void match(Entity& joueur1, Entity& joueur2) {
-    int scoreJoueur1 = 0;
-    int scoreJoueur2 = 0;
+void rencontreMonstre(struct Joueur* joueur) {
+    printf("Un monstre approche!\n");
 
-    while (scoreJoueur1 < 3 && scoreJoueur2 < 3) {
-        int choixJoueur1 = joueur1.choix();
-        int choixJoueur2 = joueur2.choix();
+    int points_de_vie_monstre = 20;
+    int points_attaque_monstre = 5;
 
-        std::cout << "Joueur 1 a choisi : " << choixJoueur1 << std::endl;
-        std::cout << "Joueur 2 a choisi : " << choixJoueur2 << std::endl;
+    while (joueur->points_de_vie > 0 && points_de_vie_monstre > 0) {
+        printf("1. Attaquer\n2. Fuir\n");
 
-        if ((choixJoueur1 == 0 && choixJoueur2 == 2) ||
-            (choixJoueur1 == 1 && choixJoueur2 == 0) ||
-            (choixJoueur1 == 2 && choixJoueur2 == 1)) {
-            std::cout << "Joueur 1 gagne le point !" << std::endl;
-            scoreJoueur1++;
-        } else if ((choixJoueur2 == 0 && choixJoueur1 == 2) ||
-                   (choixJoueur2 == 1 && choixJoueur1 == 0) ||
-                   (choixJoueur2 == 2 && choixJoueur1 == 1)) {
-            std::cout << "Joueur 2 gagne le point !" << std::endl;
-            scoreJoueur2++;
-        } else if (choixJoueur1 == choixJoueur2){
-            std::cout << "Égalité !" << std::endl;
-        } else {
-            std::cout << "Error" << std::endl;
+        int choix;
+        scanf("%d", &choix);
+
+        switch (choix) {
+            case 1:
+                printf("Vous attaquez le monstre!\n");
+                points_de_vie_monstre -= joueur->points_attaque;
+                break;
+            case 2:
+                printf("Vous fuyez le combat!\n");
+                return;
+            default:
+                printf("Choix invalide!\n");
         }
+
+        joueur->points_de_vie -= points_attaque_monstre;
+        printf("Le monstre vous attaque!\n");
+
+        printf("Vos points de vie: %d\nPoints de vie du monstre: %d\n", joueur->points_de_vie, points_de_vie_monstre);
     }
 
-    if (scoreJoueur1 == 3) {
-        std::cout << joueur1.nom << " gagne la partie !" << std::endl;
+    if (joueur->points_de_vie > 0) {
+        printf("Vous avez vaincu le monstre!\n");
     } else {
-        std::cout << joueur2.nom << " gagne la partie !" << std::endl;
+        printf("Vous avez été vaincu par le monstre...\n");
     }
 }
 
 int main() {
-    std::string nom1, nom2, choixj2;
-    std::cout << "entrer ton nom ";
-    std::cin >> nom1;
-    Player player1;
-    player1.nom = nom1;
-    std::cout << "voulez-vous jouer contre un ami ? (y) ";
-    std::cin >> choixj2;
-    if (choixj2 == "y" || choixj2 == "Y") {
-        std::cout << "entrer ton nom ";
-        std::cin >> nom2;
-        Player player2;
-        player2.nom = nom2;
-        match(player1, player2);
-    } else {
-        std::cout << "Joueur 2 est l'ordinateur." << std::endl;
-        Entity player2;
-        match(player1, player2);
-    }
-    // Ajout de la rejouabilité plus tard
+    struct Joueur joueur;
+    initialiserJoueur(&joueur, "Héros", 30, 10);
+
+    afficherJoueur(&joueur);
+
+    rencontreMonstre(&joueur);
+
     return 0;
 }
